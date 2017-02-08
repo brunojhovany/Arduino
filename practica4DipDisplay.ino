@@ -32,9 +32,7 @@ void setup() {
    void display (int d1,int d2,int d3,int d4,int d5,int d6,int d7,int numero)// Función del display
   {
     int a, b, c, d, e, f, g;
-
-
-    byte  Digit[10][7] =                // Arduino UNO va muy justo de memoria. Por eso lo
+    int  Digit[10][7] =                // Arduino UNO va muy justo de memoria. Por eso lo
     {                                   // definimos como byte y no como int
        { 1,1,1,1,1,1,0 },    // 0
        { 0,1,1,0,0,0,0 },    // 1
@@ -48,7 +46,7 @@ void setup() {
        { 1,1,1,0,0,1,1 }     // 9
     };
     if (numero==2){
-    return Digit[numero][a,b,c,d,e,f,g];
+  a=Digit[2][0];b=Digit[2][1];c=Digit[2][2];d=Digit[2][3];e=Digit[2][4];f=Digit[2][5];g=Digit[2][6];
     }
   digitalWrite (d1,a);
   digitalWrite (d2,b);
@@ -66,6 +64,5 @@ void loop() {
  int pd=digitalRead(12);
  int r;
  r=leerNumero(pa,pb,pc,pd);
- if (r==1){ digitalWrite(8,HIGH);}
  display(2,3,4,5,6,7,8,r);
 }
