@@ -29,15 +29,34 @@ void setup() {
     }
 
 
-   void display (int a, int b, int c, int d, int e, int f, int g,int numero)// Función del display
+   void display (int d1,int d2,int d3,int d4,int d5,int d6,int d7,int numero)// Función del display
   {
-  digitalWrite (2,a);
-  digitalWrite (3,b);
-  digitalWrite (4,c);
-  digitalWrite (5,d);
-  digitalWrite (6,e);
-  digitalWrite (7,f);
-  digitalWrite (8,g);
+    int a, b, c, d, e, f, g;
+
+
+    byte  Digit[10][7] =                // Arduino UNO va muy justo de memoria. Por eso lo
+    {                                   // definimos como byte y no como int
+       { 1,1,1,1,1,1,0 },    // 0
+       { 0,1,1,0,0,0,0 },    // 1
+       { 1,1,0,1,1,0,1 },    // 2
+       { 1,1,1,1,0,0,1 },    // 3
+       { 0,0,1,0,0,1,1 },    // 4
+       { 1,0,1,1,0,1,1 },    // 5
+       { 1,0,1,1,1,1,1 },    // 6
+       { 1,1,1,0,0,0,0 },    // 7
+       { 1,1,1,1,1,1,1 },    // 8
+       { 1,1,1,0,0,1,1 }     // 9
+    };
+    if (numero==2){
+    return Digit[numero][a,b,c,d,e,f,g];
+    }
+  digitalWrite (d1,a);
+  digitalWrite (d2,b);
+  digitalWrite (d3,c);
+  digitalWrite (d4,d);
+  digitalWrite (d5,e);
+  digitalWrite (d6,f);
+  digitalWrite (d7,g);
   }
 
 void loop() {
@@ -47,7 +66,6 @@ void loop() {
  int pd=digitalRead(12);
  int r;
  r=leerNumero(pa,pb,pc,pd);
- if (r>5){
-    digitalWrite(8,HIGH);
-  }
+ if (r==1){ digitalWrite(8,HIGH);}
+ display(2,3,4,5,6,7,8,r);
 }
